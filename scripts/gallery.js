@@ -6,7 +6,11 @@ const PRE_ASSIGNED = [
   { id: 5, name: "DSC09398.JPG", type: "image/jpeg", sizeKB: 6028, url: "./photos/DSC09398.JPG" },
   { id: 6, name: "IMG_20251004_194356.jpg", type: "image/jpeg", sizeKB: 3250, url: "./photos/IMG_20251004_194356.jpg" },
   { id: 7, name: "IMG_20260524_122313672.jpg", type: "image/jpeg", sizeKB: 2907, url: "./photos/IMG_20260524_122313672.jpg" },
-  { id: 8, name: "IMG_TAKUMI.jpeg", type: "image/jpeg", sizeKB: 421, url: "./photos/IMG_TAKUMI.jpeg" }
+  { id: 8, name: "boba-bash-cards-4aa396c7d6ef259bdcbcdaad.webp", type: "image/webp", sizeKB: 524, url: "./photos/boba-bash-cards-4aa396c7d6ef259bdcbcdaad.webp" },
+  { id: 9, name: "boba-bash-cards-8a940c75e9bf3daf3b69f22f.webp", type: "image/webp", sizeKB: 765, url: "./photos/boba-bash-cards-8a940c75e9bf3daf3b69f22f.webp" },
+  { id: 10, name: "boba-bash-cards-0645862fa61da9b9f78937c1.webp", type: "image/webp", sizeKB: 543, url: "./photos/boba-bash-cards-0645862fa61da9b9f78937c1.webp" },
+  { id: 11, name: "boba-bash-cards-b85a126e3362988641478e7b.webp", type: "image/webp", sizeKB: 432, url: "./photos/boba-bash-cards-b85a126e3362988641478e7b.webp" }
+
 ];
 
 let photos = [];

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Whising — Portfolio</title>
+<title>Whising's Portfolio</title>
 <link rel="stylesheet" href="https://unpkg.com/98.css"/>
 <link rel="stylesheet" href="./scripts/css/mainpage.css">
 </head>
@@ -36,7 +36,7 @@
         <div class="desk-icon-label">Contact Me</div>
       </div>
 
-      <div class="desk-icon" id="icon-gallery" ondblclick="openApp('gallery')" onclick="selectIcon('icon-gallery',event)">
+      <div class="desk-icon" id="icon-photos" ondblclick="openApp('gallery')" onclick="selectIcon('icon-photos',event)">
         <div class="desk-icon-img">
           <img src="./icons/movie_maker-5.png" alt="Gallery">
         </div>
@@ -48,6 +48,13 @@
           <img src="icons/hackclub.png" alt="HackClub">
         </div>
         <div class="desk-icon-label">HackClub</div>
+      </div>
+
+      <div class="desk-icon" id="icon-gallery" ondblclick="openApp('mydocs-explorer')" onclick="selectIcon('icon-gallery',event)">
+        <div class="desk-icon-img">
+          <img src="./icons/photofunky.gif" alt="sdcard">
+        </div>
+        <div class="desk-icon-label">My SD Card</div>
       </div>
 
     </div>
@@ -90,7 +97,7 @@
       <div class="sm-separator"></div>
       <div class="start-menu-section">
         <button class="btn" onclick="location.reload()">Restart</button>
-        <button class="btn" onclick="closeStartMenu()">Shut Down…</button>
+        <button class="btn" onclick="closeStartMenu()">Shut Down</button>
       </div>
     </div>
   </div>

@@ -1,11 +1,15 @@
-const appIds = ['about','explorer','contact','gallery','hackclub','dos'];
+const appIds = ['about', 'explorer', 'contact', 'gallery', 'hackclub', 'dos', 'boba-bash-delhi', 'boba-bash-grn', 'distortion-rlsp', 'og-tour'];
 const appNames = {
-  about:'About Me',
-  explorer:'File Explorer',
-  contact:'Contact Me',
-  hackclub:'HackClub',
-  gallery:'Gallery',
-  dos:'DOS',
+  about: 'About Me',
+  explorer: 'File Explorer',
+  contact: 'Contact Me',
+  hackclub: 'HackClub',
+  gallery: 'Gallery',
+  dos: 'DOS',
+  'boba-bash-delhi': 'Boba Bash Delhi',
+  'boba-bash-grn': 'Boba Bash Greater Noida',
+  'distortion-rlsp': '::distortion:: Release Party',
+  'og-tour': 'OG Lucifer Tour'
 };
 
 const appPages = {
@@ -15,6 +19,10 @@ const appPages = {
   gallery: './gallery.html',
   hackclub: 'https://hackclub.com',
   dos: './dos.html',
+  'boba-bash-delhi': './gallery/bobabashdelhi.html',
+  'boba-bash-grn': './gallery/bobabashgrn.html',
+  'distortion-rlsp': './gallery/dsrlps.html',
+  'og-tour': './gallery/ogtour.html'
 };
 
 let openApps = {};
@@ -48,12 +56,25 @@ document.addEventListener('click', e => {
 });
 
 function openApp(id) {
-  if (!appPages[id]) return;
+  const folderPaths = {
+    'mydocs-explorer': 'C:\\My Documents',
+    'boba-bash-delhi-folder': 'C:\\My Documents\\Boba Bash Delhi',
+    'boba-bash-grn-folder': 'C:\\My Documents\\Boba Bash Greater Noida',
+    'distortion-rlsp-folder': 'C:\\My Documents\\::distortion:: release party',
+    'og-tour-folder': 'C:\\My Documents\\OG Lucifer Poore Dil Se Tour'
+  };
 
-  if (!document.getElementById('win-' + id)) {
+  const targetAppId = folderPaths[id] ? 'explorer' : id;
+  const initialPath = folderPaths[id] || null;
+
+  if (!appPages[targetAppId]) return;
+
+  const winId = 'win-' + targetAppId;
+
+  if (!document.getElementById(winId)) {
     const win = document.createElement('div');
     win.className = 'win-window';
-    win.id = 'win-' + id;
+    win.id = winId;
     win.style.top = (Math.random() * 100 + 50) + 'px';
     win.style.left = (Math.random() * 100 + 50) + 'px';
     win.style.width = '480px';
@@ -61,13 +82,13 @@ function openApp(id) {
 
     const titlebar = document.createElement('div');
     titlebar.className = 'win-titlebar';
-    titlebar.onmousedown = (e) => startDrag(e, 'win-' + id);
+    titlebar.onmousedown = (e) => startDrag(e, winId);
     titlebar.innerHTML = `
-      <span class="win-title-text">${appNames[id]}</span>
+      <span class="win-title-text">${appNames[targetAppId] || 'Application'}</span>
       <div class="win-titlebar-btns">
-        <div class="win-btn" onclick="minimizeApp('${id}')" title="Minimize">_</div>
-        <div class="win-btn" onclick="maximizeWin('win-${id}')" title="Maximize">□</div>
-        <div class="win-btn" onclick="closeApp('${id}')" title="Close" style="font-weight:bold;">✕</div>
+        <div class="win-btn" onclick="minimizeApp('${targetAppId}')" title="Minimize">_</div>
+        <div class="win-btn" onclick="maximizeWin('${winId}')" title="Maximize">□</div>
+        <div class="win-btn" onclick="closeApp('${targetAppId}')" title="Close" style="font-weight:bold;">✕</div>
       </div>
     `;
 
@@ -75,27 +96,38 @@ function openApp(id) {
     body.className = 'win-body';
     body.style.padding = '0';
     body.style.overflow = 'hidden';
-    body.innerHTML = '<iframe src="' + appPages[id] + '" style="width:100%;height:100%;border:none;background:#fff;"></iframe>';
+    
+    let pageSrc = appPages[targetAppId];
+    if (initialPath && targetAppId === 'explorer') {
+      pageSrc += '?path=' + encodeURIComponent(initialPath);
+    }
+
+    body.innerHTML = `<iframe src="${pageSrc}" style="width:100%;height:100%;border:none;background:#fff;" id="iframe-${targetAppId}"></iframe>`;
 
     const resize = document.createElement('div');
     resize.className = 'resize-handle';
-    resize.onmousedown = (e) => startResize(e, 'win-' + id);
+    resize.onmousedown = (e) => startResize(e, winId);
 
     win.appendChild(titlebar);
     win.appendChild(body);
     win.appendChild(resize);
 
     document.getElementById('desktop').appendChild(win);
-    win.addEventListener('mousedown', () => focusWindow(id));
+    win.addEventListener('mousedown', () => focusWindow(targetAppId));
+  } else if (initialPath && targetAppId === 'explorer') {
+    const iframe = document.getElementById('iframe-' + targetAppId);
+    if (iframe) {
+      iframe.src = appPages[targetAppId] + '?path=' + encodeURIComponent(initialPath);
+    }
   }
 
-  if (!openApps[id]) {
-    openApps[id] = { minimized: false };
-    addTaskbarBtn(id);
+  if (!openApps[targetAppId]) {
+    openApps[targetAppId] = { minimized: false };
+    addTaskbarBtn(targetAppId);
   }
-  openApps[id].minimized = false;
-  document.getElementById('win-' + id).classList.add('open');
-  focusWindow(id);
+  openApps[targetAppId].minimized = false;
+  document.getElementById(winId).classList.add('open');
+  focusWindow(targetAppId);
 }
 
 function closeApp(id) {
@@ -151,9 +183,9 @@ function addTaskbarBtn(id) {
   const btn = document.createElement('div');
   btn.className = 'tb-app-btn active';
   btn.id = 'tb-' + id;
-  btn.title = appNames[id];
+  btn.title = appNames[id] || 'Application';
   btn.onclick = () => restoreApp(id);
-  btn.innerHTML = `<span>${appNames[id]}</span>`;
+  btn.innerHTML = `<span>${appNames[id] || 'Application'}</span>`;
   appsDiv.appendChild(btn);
 }
 
@@ -165,7 +197,8 @@ function removeTaskbarBtn(id) {
 function selectIcon(id, e) {
   e && e.stopPropagation();
   deselectAll();
-  document.getElementById(id).classList.add('selected');
+  const el = document.getElementById(id);
+  if (el) el.classList.add('selected');
 }
 
 function deselectAll() {
@@ -199,7 +232,6 @@ document.addEventListener('mousemove', e => {
 
 document.addEventListener('mouseup', () => { dragTarget = null; });
 
-
 let resizeTarget = null, resizeOX = 0, resizeOY = 0, resizeW0 = 0, resizeH0 = 0;
 
 function startResize(e, id) {
@@ -231,7 +263,6 @@ const COL_GAP   = 8;
 
 function layoutIcons() {
   const desktop  = document.getElementById('desktop');
-  const taskbar  = document.querySelector('.taskbar');
   const icons    = Array.from(document.querySelectorAll('.desk-icon'));
 
   const availH = desktop.offsetHeight - ICON_PAD_TOP - 8; 

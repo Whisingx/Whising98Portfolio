@@ -5,39 +5,39 @@ const FS = {
   },
   'C:\\': {
     type: 'drive',
-    children: ['C:\\WINDOWS', 'C:\\Program Files', 'C:\\My Documents']
+    children: ['C:\\WHISING', 'C:\\Program Files', 'C:\\My Documents']
   },
-  'C:\\WINDOWS': {
+  'C:\\WHISING': {
     type: 'folder',
-    children: ['C:\\WINDOWS\\System32', 'C:\\WINDOWS\\Fonts', 'C:\\WINDOWS\\Media']
+    children: ['C:\\WHISING\\System32', 'C:\\WHISING\\Fonts', 'C:\\WHISING\\Media']
   },
-  'C:\\WINDOWS\\System32': {
+  'C:\\WHISING\\System32': {
     type: 'folder',
     files: [
-      { name: 'kernel32.dll',  type: 'dll',  size: '471 KB' },
-      { name: 'ntdll.dll',     type: 'dll',  size: '668 KB' },
-      { name: 'user32.dll',    type: 'dll',  size: '562 KB' },
-      { name: 'regedit.exe',   type: 'exe',  size: '148 KB' },
-      { name: 'cmd.exe',       type: 'exe',  size: '32 KB'  },
-      { name: 'taskmgr.exe',   type: 'exe',  size: '111 KB' },
+      { name: 'kernel32.dll',   type: 'dll',   size: '471 KB' },
+      { name: 'ntdll.dll',     type: 'dll',   size: '668 KB' },
+      { name: 'user32.dll',    type: 'dll',   size: '562 KB' },
+      { name: 'regedit.exe',   type: 'exe',   size: '148 KB' },
+      { name: 'cmd.exe',       type: 'exe',   size: '32 KB'  },
+      { name: 'taskmgr.exe',   type: 'exe',   size: '111 KB' },
     ],
     photo: { src: '../photos/photo1.jpg', caption: 'photo1.jpg', top: '60px', left: '340px', rotate: '-3deg' }
   },
-  'C:\\WINDOWS\\Fonts': {
+  'C:\\WHISING\\Fonts': {
     type: 'folder',
     files: [
-      { name: 'arial.ttf',     type: 'font', size: '188 KB' },
-      { name: 'times.ttf',     type: 'font', size: '202 KB' },
-      { name: 'cour.ttf',      type: 'font', size: '95 KB'  },
+      { name: 'arial.ttf',    type: 'font', size: '188 KB' },
+      { name: 'times.ttf',    type: 'font', size: '202 KB' },
+      { name: 'cour.ttf',     type: 'font', size: '95 KB'  },
     ],
     photo: { src: './icons/profile.png', caption: 'photo2.jpg', top: '80px', left: '280px', rotate: '2deg' }
   },
-  'C:\\WINDOWS\\Media': {
+  'C:\\WHISING\\Media': {
     type: 'folder',
     files: [
-      { name: 'chimes.wav',    type: 'wav',  size: '74 KB' },
-      { name: 'chord.wav',     type: 'wav',  size: '24 KB' },
-      { name: 'ding.wav',      type: 'wav',  size: '12 KB' },
+      { name: 'chimes.wav',    type: 'wav',   size: '74 KB' },
+      { name: 'chord.wav',     type: 'wav',   size: '24 KB' },
+      { name: 'ding.wav',      type: 'wav',   size: '12 KB' },
     ],
     photo: { src: '../photos/photo3.jpg', caption: 'photo3.jpg', top: '50px', left: '310px', rotate: '4deg' }
   },
@@ -48,22 +48,56 @@ const FS = {
   'C:\\Program Files\\Common Files': {
     type: 'folder',
     files: [
-      { name: 'msvcrt.dll',    type: 'dll',  size: '302 KB' },
-      { name: 'oleaut32.dll',  type: 'dll',  size: '627 KB' },
-      { name: 'comctl32.dll',  type: 'dll',  size: '534 KB' },
+      { name: 'msvcrt.dll',    type: 'dll',   size: '302 KB' },
+      { name: 'oleaut32.dll',  type: 'dll',   size: '627 KB' },
+      { name: 'comctl32.dll',  type: 'dll',   size: '534 KB' },
     ]
   },
   'C:\\Program Files\\Internet Explorer': {
     type: 'folder',
     files: [
-      { name: 'iexplore.exe',  type: 'ie',  size: '91 KB' },
-      { name: 'iecompat.dll',  type: 'dll',  size: '42 KB' },
-      { name: 'iertutil.dll',  type: 'dll',  size: '1.3 MB' },
+      { name: 'whisingexplorer.exe', type: 'ie', size: '91 KB', appId: 'whising-explorer-app' },
+      { name: 'iecompat.dll',  type: 'dll',   size: '42 KB' },
+      { name: 'iertutil.dll',  type: 'dll',   size: '1.3 MB' },
     ]
   },
   'C:\\My Documents': {
     type: 'folder',
+    children: [
+      'C:\\My Documents\\Boba Bash Delhi',
+      'C:\\My Documents\\Boba Bash Greater Noida',
+      'C:\\My Documents\\::distortion:: release party',
+      'C:\\My Documents\\OG Lucifer Poore Dil Se Tour'
+    ],
     files: []
+  },
+  'C:\\My Documents\\Boba Bash Delhi': {
+    type: 'folder',
+    files: [
+      { name: 'Boba Bash Delhi.exe', type: 'exe', size: '1.2 MB', appId: 'boba-bash-delhi' }
+    ],
+    appId: 'boba-bash-delhi-folder'
+  },
+  'C:\\My Documents\\Boba Bash Greater Noida': {
+    type: 'folder',
+    files: [
+      { name: 'Boba Bash Greater Noida.exe', type: 'exe', size: '1.2 MB', appId: 'boba-bash-grn' }
+    ],
+    appId: 'boba-bash-grn-folder'
+  },
+  'C:\\My Documents\\::distortion:: release party': {
+    type: 'folder',
+    files: [
+      { name: '::distortion:: release party.exe', type: 'exe', size: '4.5 MB', appId: 'distortion-rlsp' }
+    ],
+    appId: 'distortion-rlsp-folder'
+  },
+  'C:\\My Documents\\OG Lucifer Poore Dil Se Tour': {
+    type: 'folder',
+    files: [
+      { name: 'OG Lucifer Poore Dil Se Tour.exe', type: 'exe', size: '4.5 MB', appId: 'og-tour' }
+    ],
+    appId: 'og-tour-folder'
   },
   'C:\\Desktop': { type: 'folder', files: [] },
   'Desktop': { type: 'folder', children: ['C:\\', 'C:\\My Documents'] }
@@ -75,18 +109,38 @@ function iconSrc(type) {
     drive:  './icons/drive.png',
     dll:    './icons/dll.png',
     exe:    './icons/exe.png',
-    ie:    './icons/ie.png', //IE get special treatment fs
+    ie:     './icons/ie.png',
     font:   './icons/font.png',
     wav:    './icons/wav.png',
   };
   return map[type] || '';
 }
-let currentPath = 'C:\\WINDOWS';
+
+let currentPath = 'C:\\WHISING';
 
 function navigate(label, path) {
   currentPath = path;
   document.getElementById('addr-input').value = path;
   renderContent(path);
+  expandTreeView(path);
+}
+
+function expandTreeView(path) {
+  document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('selected'));
+
+  const targetNode = document.querySelector(`.tree-node[data-path="${CSS.escape(path)}"]`);
+  if (!targetNode) return;
+
+  let parent = targetNode.parentElement;
+  while (parent && parent !== document.getElementById('tree-pane')) {
+    if (parent.classList.contains('tree-children')) {
+      parent.classList.add('open');
+      const toggleId = 'toggle-' + parent.id;
+      const tog = document.getElementById(toggleId);
+      if (tog) tog.textContent = '-';
+    }
+    parent = parent.parentElement;
+  }
 }
 
 function renderContent(path) {
@@ -108,7 +162,7 @@ function renderContent(path) {
   if (node.children) {
     node.children.forEach(childPath => {
       const name = childPath.split('\\').pop() || childPath;
-      items.push({ name, type: 'folder', size: '' });
+      items.push({ name, type: 'folder', size: '', appId: FS[childPath]?.appId });
       count++;
     });
   }
@@ -145,12 +199,25 @@ function renderContent(path) {
       e.stopPropagation();
     };
 
-    if (item.type === 'folder') {
-      el.ondblclick = () => {
+    el.ondblclick = () => {
+      if (node.children) {
         const childPath = node.children.find(c => c.endsWith(item.name));
-        if (childPath) navigate(item.name, childPath);
-      };
-    }
+        if (childPath) {
+          navigate(item.name, childPath);
+          return;
+        }
+      }
+      if (item.appId) {
+        // Triggers openApp in the parent window (mainpage.js) to open the assigned HTML page
+        if (window.parent && typeof window.parent.openApp === 'function') {
+          window.parent.openApp(item.appId);
+        } else if (typeof openApp === 'function') {
+          openApp(item.appId);
+        } else {
+          console.log('Open App ID:', item.appId);
+        }
+      }
+    };
 
     area.appendChild(el);
   });
@@ -226,10 +293,16 @@ function makeDraggable(el, container) {
   });
 }
 
-// for init
 document.getElementById('node-desktop').classList.add('open');
 document.getElementById('toggle-node-desktop').textContent = '-';
 document.getElementById('node-mycomputer-ch').classList.add('open');
 document.getElementById('toggle-node-mycomputer-ch').textContent = '-';
 
-navigate('WINDOWS', 'C:\\WINDOWS');
+const urlParams = new URLSearchParams(window.location.search);
+const queryPath = urlParams.get('path');
+
+if (queryPath && FS[queryPath]) {
+  navigate(queryPath.split('\\').pop() || queryPath, queryPath);
+} else {
+  navigate('WHISING', 'C:\\WHISING');
+}

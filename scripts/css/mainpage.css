@@ -70,8 +70,14 @@
     position: absolute;
     pointer-events: all;
   }
-  .desk-icon:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); }
-  .desk-icon.selected { background: rgba(0,0,128,0.5); border: 1px dotted #fff; }
+
+  .desk-icon:hover { 
+    border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); 
+  }
+
+  .desk-icon.selected { 
+    background: rgba(0,0,128,0.5); border: 1px dotted #fff; 
+  }
 
   .desk-icon-img {
     width: 48px;
@@ -83,7 +89,7 @@
     margin-bottom: 4px;
   }
 
-  .desk-icon-img img {
+  .desk-icon-img img{
     width: 48px;
     height: 48px;
     image-rendering: pixelated;

@@ -32,6 +32,6 @@
   });
 
   powerBtn.addEventListener('click', () => {
-    alert("Please enable fullscreen manually (F11 or browser menu). Starting PCX...");
+    alert("Please enable fullscreen manually (F11 or browser menu). Starting PC...");
     startSequence();
   });
